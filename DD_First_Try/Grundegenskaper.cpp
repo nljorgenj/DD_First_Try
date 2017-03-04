@@ -21,7 +21,7 @@ Grundegenskaper::~Grundegenskaper()
 
 void Grundegenskaper::setStyrka(int Styrka)
 {
-	styrka = Styrka;
+	this->styrka = Styrka;
 }
 
 void Grundegenskaper::setFysik(int Fysik)

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Tärning.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:
 	void setKarisma(int Karisma);
 
 	int getStyrka(void);
+	Tärning tärning;
 
 private:
 	int styrka;

@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 #include "Karaktär.h"
+//#include "Tärning.h"
 
 using namespace std;
 
 int main() {
 	Karaktär karaktär;
+	//Tärning tärning;
 
 	cout << "=======================================================" << endl;
 	cout << "== Skapa en rollperson till Drakar och Demoner 2016. ==" << endl;
@@ -17,7 +19,7 @@ int main() {
 	string namn;
 	getline(cin, namn);
 	karaktär.setNamn(namn);
-	karaktär.grundegenskaper.setStyrka(12);
+	karaktär.grundegenskaper.setStyrka(karaktär.grundegenskaper.tärning.T(6,3,0));
 
 
 	cout << "Rollpersonens namn är: " <<  karaktär.getNamn() << endl;

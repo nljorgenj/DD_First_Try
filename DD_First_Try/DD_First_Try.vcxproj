@@ -145,10 +145,12 @@
     <ClCompile Include="dd_first_try.cpp" />
     <ClCompile Include="Grundegenskaper.cpp" />
     <ClCompile Include="Karaktär.cpp" />
+    <ClCompile Include="Tärning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grundegenskaper.h" />
     <ClInclude Include="Karaktär.h" />
+    <ClInclude Include="Tärning.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
