@@ -321,5 +321,34 @@ void Karaktär::startKapital()
 	default:
 		break;
 	}
+
+	resultat = tärning.T(10, 1, 0);
+	switch (resultat) {
+	case 1:
+		this->klass = "Adel";
+		pengar.silver = pengar.silver * 10;
+		break;
+	case 2:
+	case 3:
+		pengar.silver = (tärning.T(6, 3, 0) * 5);
+		break;
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+		pengar.silver = (tärning.T(6, 4, 0) * 5);
+		break;
+	case 8:
+	case 9:
+		pengar.silver = (tärning.T(6, 5, 0) * 5);
+		break;
+	case 10:
+		pengar.silver = (tärning.T(6, 6, 0) * 5);
+		break;
+	default:
+		break;
+	}
+
+
 }
 
