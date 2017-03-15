@@ -3,9 +3,14 @@
 #include "Karaktär.h"
 //#include "Tärning.h"
 
+
+
 using namespace std;
 
 int main() {
+	locale swedish("swedish");
+	locale::global(swedish);
+
 	Karaktär karaktär;
 	//Tärning tärning;
 
@@ -14,16 +19,12 @@ int main() {
 	cout << "=======================================================" << endl;
 
 	cout << endl;
+	karaktär.getNamnFrånSpelare();
+	karaktär.getSpelarNamn();
+	karaktär.väljKön();
+	karaktär.väljVarelse();
+
 	
-	cout << "Skriv in rollpersonens namn: " << flush;
-	string namn;
-	getline(cin, namn);
-	karaktär.setNamn(namn);
-	karaktär.grundegenskaper.setStyrka(karaktär.grundegenskaper.tärning.T(6,3,0));
-
-
-	cout << "Rollpersonens namn är: " <<  karaktär.getNamn() << endl;
-	cout << endl << "Styrka = " << karaktär.grundegenskaper.getStyrka() << endl << endl;
 
 	return 0;
 }
