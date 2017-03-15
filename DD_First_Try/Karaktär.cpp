@@ -31,7 +31,7 @@ Karaktär::Karaktär()
 	återhämtaKra = "";
 	offensivHand = "";
 
-
+	klass = "";
 
 }
 
@@ -105,6 +105,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(30, 1, 150);
 			this->vikt = tärning.T(30, 1, 40);
+			this->förflyttning = 8;
 			break;
 		case 2:
 			this->varelse = "Anka";
@@ -130,6 +131,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(40, 1, 110);
 			this->vikt = tärning.T(10, 1, 20);
+			this->förflyttning = 6;
 
 			break;
 		case 3:
@@ -157,6 +159,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(30, 1, 130);
 			this->vikt = tärning.T(30, 1, 40);
+			this->förflyttning = 6;
 
 			break;
 		case 4:
@@ -184,6 +187,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(30, 1, 110);
 			this->vikt = tärning.T(20, 1, 25);
+			this->förflyttning = 6;
 
 			break;
 		case 5:
@@ -206,6 +210,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(40, 1, 160);
 			this->vikt = tärning.T(30, 1, 50);
+			this->förflyttning = 8;
 
 			break;
 		case 6:
@@ -233,6 +238,7 @@ void Karaktär::väljVarelse()
 			}
 			this->längd = tärning.T(50, 1, 170);
 			this->vikt = tärning.T(35, 1, 55);
+			this->förflyttning = 10;
 
 
 			break;
@@ -285,6 +291,35 @@ void Karaktär::fOffensivHand()
 	}
 	else {
 		this->offensivHand = "Vänster";
+	}
+}
+
+void Karaktär::startKapital()
+{
+	int resultat = tärning.T(10, 1, 0);
+	switch (resultat) {
+	case 1:
+		pengar.silver = (tärning.T(6, 2, 0) * 5);
+		break;
+	case 2:
+	case 3:
+		pengar.silver = (tärning.T(6, 3, 0) * 5);
+		break;
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+		pengar.silver = (tärning.T(6, 4, 0) * 5);
+		break;
+	case 8:
+	case 9:
+		pengar.silver = (tärning.T(6, 5, 0) * 5);
+		break;
+	case 10:
+		pengar.silver = (tärning.T(6, 6, 0) * 5);
+		break;
+	default:
+		break;
 	}
 }
 

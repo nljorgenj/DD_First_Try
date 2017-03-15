@@ -22,9 +22,9 @@ int main() {
 	karaktär.getNamnFrånSpelare();
 	karaktär.getSpelarNamn();
 	karaktär.väljKön();
+	karaktär.fOffensivHand();
+	karaktär.startKapital();
 	karaktär.väljVarelse();
-
 	
-
 	return 0;
 }

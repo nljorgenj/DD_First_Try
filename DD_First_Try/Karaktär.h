@@ -18,6 +18,7 @@ public:
 	void väljVarelse();
 	void väljKön();
 	void fOffensivHand();
+	void startKapital();
 
 private:
 	Tärning tärning;
@@ -42,18 +43,19 @@ private:
 
 	int bärförmåga;
 	string skadebonus;
-	string förflyttning;
+	int förflyttning;
 	string forceraRetirera;
 	string naturligläkning;
 	string återhämtaKra;
 	string offensivHand;
 
-	struct pengar {
+	struct Pengar {
 		int guld = 0;
 		int silver = 0;
 		int koppar = 0;
-	};
+	} pengar;
 
+	string klass;
 
 };
 
