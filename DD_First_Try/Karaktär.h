@@ -19,6 +19,10 @@ public:
 	void väljKön();
 	void fOffensivHand();
 	void startKapital();
+	void visaKaraktär();
+	void grundegenskaper();
+	void väljYrke();
+	void placeraVärdePåEgenskaper();
 
 private:
 	Tärning tärning;
@@ -33,6 +37,7 @@ private:
 	int längd;
 	int vikt;
 
+	int egenskaper[7];
 	int styrka;
 	int fysik;
 	int smidighet;
@@ -56,6 +61,7 @@ private:
 	} pengar;
 
 	string klass;
+	string viktigasteEgenskaperna = "";
 
 };
 

@@ -25,6 +25,10 @@ int main() {
 	karaktär.fOffensivHand();
 	karaktär.startKapital();
 	karaktär.väljVarelse();
-	
+	karaktär.grundegenskaper();
+	karaktär.väljYrke();
+	karaktär.placeraVärdePåEgenskaper();
+	karaktär.visaKaraktär();
+
 	return 0;
 }

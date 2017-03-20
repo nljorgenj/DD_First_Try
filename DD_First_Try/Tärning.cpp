@@ -28,7 +28,7 @@ int Tärning::T(int antalsidor, int antal, int modifikation)
 	int resultat = 0;
 	for (int i = 0; i < antal; i++) {
 		resultat += rangeRandomAlg2(1, antalsidor);
-		cout << "resultat = " << resultat << endl;
+		//cout << "resultat = " << resultat << endl;
 	}
 	resultat += modifikation;
 	return resultat;
