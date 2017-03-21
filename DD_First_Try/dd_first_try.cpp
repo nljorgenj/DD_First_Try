@@ -14,9 +14,8 @@ int main() {
 	Karaktär karaktär;
 	//Tärning tärning;
 
-	cout << "=======================================================" << endl;
-	cout << "== Skapa en rollperson till Drakar och Demoner 2016. ==" << endl;
-	cout << "=======================================================" << endl;
+	karaktär.showLogo();
+
 
 	cout << endl;
 	karaktär.getNamnFrånSpelare();

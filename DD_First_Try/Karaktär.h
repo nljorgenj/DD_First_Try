@@ -13,6 +13,7 @@ public:
 	Karaktär();
 	~Karaktär();
 
+	void showLogo();
 	void getNamnFrånSpelare();
 	void getSpelarNamn();
 	void väljVarelse();
@@ -25,6 +26,7 @@ public:
 	void placeraVärdePåEgenskaper();
 
 private:
+	void sortArray();
 	Tärning tärning;
 
 	string namn;

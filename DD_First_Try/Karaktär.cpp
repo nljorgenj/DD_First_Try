@@ -1,6 +1,7 @@
 #include "Karaktär.h"
 
 #include <sstream>
+#include <algorithm>
 
 Karaktär::Karaktär()
 {
@@ -43,29 +44,67 @@ Karaktär::~Karaktär()
 {
 }
 
+void Karaktär::showLogo()
+{
+	cout << "=======================================================" << endl;
+	cout << "== Skapa en rollperson till Drakar och Demoner 2016. ==" << endl;
+	cout << "=======================================================" << endl;
+
+}
+
 void Karaktär::getNamnFrånSpelare()
 {
-	cout << "Skriv in rollpersonens namn: " << flush;
-	string namn;
-	getline(cin, namn);
-	this->namn = namn;
-	cout << endl;
+	bool klart = false;
+	do {
+		system("cls");
+		this->showLogo();
+		cout << "Skriv in rollpersonens namn: " << flush;
+		string namn;
+		getline(cin, namn);
+		if(namn.length()>1) {
+			this->namn = namn;
+			klart = true;
+		}
+		else {
+			cout << endl << "Minst 2 bokstäver i namnet" << endl << endl;
+			system("pause");
+		}
+
+	} while (!klart);
+
 
 }
 
 void Karaktär::getSpelarNamn()
 {
-	cout << "Skriv in spelarens namn: " << flush;
-	string spelare;
-	getline(cin, spelare);
-	this->spelare = spelare;
-	cout << endl;
+	bool klart = false;
+	do {
+		system("cls");
+		this->showLogo();
+		cout << "Skriv in spelarens namn: " << flush;
+		string spelare;
+		getline(cin, spelare);
+
+		if (spelare.length() > 1) {
+			this->spelare = spelare;
+			klart = true;
+		}
+		else {
+			cout << endl << "Minst 2 bokstäver i namnet" << endl << endl;
+			system("pause");
+		}
+
+	} while (!klart);
+
 }
 
 void Karaktär::väljVarelse()
 {
+
 	bool valetutfört = false;
 	do {
+		system("cls");
+		this->showLogo();
 		cout << "Välj varelse från nedanstående lista: " << endl;
 		cout << "\t1.\tAlv" << endl;
 		cout << "\t2.\tAnka" << endl;
@@ -266,6 +305,7 @@ void Karaktär::väljVarelse()
 			break;
 		default:
 			cout << "Felaktigt val!" << endl;
+			system("pause");
 			valetutfört = false;
 		}
 	} while (!valetutfört);
@@ -274,9 +314,11 @@ void Karaktär::väljVarelse()
 
 void Karaktär::väljKön()
 {
-	
+
 	bool valetutfört = false;
 	do {
+		system("cls");
+		this->showLogo();
 		cout << "Välj kön från nedanstående lista: " << endl;
 		cout << "\t1.\tMan" << endl;
 		cout << "\t2.\tKvinna" << endl << endl;
@@ -300,6 +342,8 @@ void Karaktär::väljKön()
 		default:
 			cout << "Felaktigt val!" << endl;
 			valetutfört = false;
+			system("pause");
+
 		}
 	} while (!valetutfört);
 
@@ -379,10 +423,12 @@ void Karaktär::startKapital()
 
 void Karaktär::visaKaraktär()
 {
+	system("cls");
+	this->showLogo();
 	cout << "Namn:    " << namn << endl;
 	cout << "Spelare: " << spelare << endl;
 	cout << "Varelse: " << varelse << endl;
-	// cout << "Yrke  " << yrke << endl;
+	cout << "Yrke:    " << yrke << endl;
 	cout << "Kön:     " << kön << endl;
 
 	// cout << "" << ålderskategori << endl;
@@ -451,9 +497,10 @@ void Karaktär::grundegenskaper()
 void Karaktär::väljYrke()
 {
 
-
 	bool valetutfört = false;
 	do {
+		system("cls");
+		this->showLogo();
 		cout << "Välj ett yrke från nedanstående lista!" << endl << endl;
 		cout << "\t1.\tHantverkare" << endl << "\t\tViktiga grundegenskaper är smidighet, perception, karisma och intelligens." << endl << endl;
 		cout << "\t2.\tJägare" << endl << "\t\tViktiga grundegenskaper är smidighet, perception, intelligens, fysik och psyke." << endl << endl;
@@ -532,6 +579,7 @@ void Karaktär::väljYrke()
 		default:
 			cout << "Felaktigt val!" << endl;
 			valetutfört = false;
+			system("cls");
 		}
 	} while (!valetutfört);
 
@@ -540,12 +588,139 @@ void Karaktär::väljYrke()
 
 void Karaktär::placeraVärdePåEgenskaper()
 {
-	cout << "Du ska nu placera ut följande värden på dina grundegenskaper:" << endl;
-	for (int i = 0; i < 7; i++) {
-		cout << "värde " << (i+1) << " = " << this->egenskaper[i] << endl;
-	}
-	cout << "Beroende på vald ras kan du redan ha minus eller plus på dina egenskaper. De ser ut som följer: " << endl;
-	cout << this->styrka << ", " << this->fysik << ", " << this->smidighet << ", " << this->perception << ", " << this->psyke << ", " << this->intelligens << ", " << this->karisma << ", " << endl;
 
+	bool b_egenskaper[7] = { false,false,false,false,false,false,false };
+	this->sortArray();
+
+	for (int k = 6; k > -1; k--) {
+		bool valetutfört = false;
+
+		do {
+			system("cls");
+			this->showLogo();
+			cout << "Du ska nu placera ut följande värden på dina grundegenskaper:" << endl;
+			for (int i = 6; i > -1; i--) {
+				if(this->egenskaper[i] != 0) {
+					cout << this->egenskaper[i] << ", " << flush;
+				}
+			}
+			cout << endl << endl;
+			cout << "Dina viktigaste grundegenskaper baserat på ditt valda yrke " << this->yrke << " är: " << endl;
+			cout << this->viktigasteEgenskaperna << endl << endl;
+			cout << "Beroende på vald ras kan du redan ha minus eller plus på dina egenskaper. De ser ut som följer: " << endl;
+			cout << "STY: " << this->styrka << ", FYS: " << this->fysik << ", SMI: " << this->smidighet << ", PER: " << this->perception << ", PSY: " << this->psyke << ", INT: " << this->intelligens << ", KAR: " << this->karisma << endl << endl;
+			cout << "Välj grundegenskap för detta värde: " << this->egenskaper[k] << endl << endl;
+
+			if (!b_egenskaper[0]) { cout << "\t1.\tStyrka" << endl; }
+			if (!b_egenskaper[1]) { cout << "\t2.\tFysik" << endl; }
+			if (!b_egenskaper[2]) { cout << "\t3.\tSmidighet" << endl; }
+			if (!b_egenskaper[3]) { cout << "\t4.\tPerception" << endl; }
+			if (!b_egenskaper[4]) { cout << "\t5.\tPsyke" << endl; }
+			if (!b_egenskaper[5]) { cout << "\t6.\tIntelligens" << endl; }
+			if (!b_egenskaper[6]) { cout << "\t7.\tKarisma" << endl; }
+			cout << endl << "Ditt val: " << flush;
+
+			int val = 0;
+			string inmatning = "";
+			cin >> inmatning; cout << endl;
+
+			istringstream(inmatning) >> val;
+
+			valetutfört = true;
+
+			switch (val) {
+			case 1:
+				if (!b_egenskaper[0]) {
+					this->styrka += this->egenskaper[k];
+					b_egenskaper[0] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+
+				break;
+			case 2:
+				if (!b_egenskaper[1]) {
+					this->fysik += this->egenskaper[k];
+					b_egenskaper[1] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			case 3:
+				if (!b_egenskaper[2]) {
+					this->smidighet += this->egenskaper[k];
+					b_egenskaper[2] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			case 4:
+				if (!b_egenskaper[3]) {
+					this->perception += this->egenskaper[k];
+					b_egenskaper[3] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			case 5:
+				if (!b_egenskaper[4]) {
+					this->psyke += this->egenskaper[k];
+					b_egenskaper[4] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			case 6:
+				if (!b_egenskaper[5]) {
+					this->intelligens += this->egenskaper[k];
+					b_egenskaper[5] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			case 7:
+				if (!b_egenskaper[6]) {
+					this->karisma += this->egenskaper[k];
+					b_egenskaper[6] = true;
+					this->egenskaper[k] = 0;
+				}
+				else {
+					cout << "du har redan satt ett värde på denna egenskap!" << endl << endl;
+					valetutfört = false;
+				}
+				break;
+			default:
+				cout << endl << "Felaktigt val!" << endl << endl;
+				valetutfört = false;
+				break;
+			}
+		} while (!valetutfört);
+
+	}
 }
+
+void Karaktär::sortArray()
+{
+	//Now we call the sort function
+	sort(this->egenskaper, this->egenskaper + 7);
+}
+
 
