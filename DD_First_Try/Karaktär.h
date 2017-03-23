@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "Tärning.h"
 
 using namespace std;
@@ -24,6 +25,7 @@ public:
 	void grundegenskaper();
 	void väljYrke();
 	void placeraVärdePåEgenskaper();
+	void färdigheter();
 
 private:
 	void sortArray();
@@ -64,6 +66,36 @@ private:
 
 	string klass;
 	string viktigasteEgenskaperna = "";
+
+	int besvärjelsekonst;
+	int dyrka;
+	int finnaDoldaTing;
+	int floraOchFauna;
+	int förhandla;
+	int förstaHjälpen;
+	int geografi;
+	int hantverk;
+	int heraldik;
+	int historia;
+	int jaktOchFällor;
+	int kulturer;
+	int läsaOchSkriva;
+	int orientera;
+	int riddjur;
+	int rörlighet;
+	int simma;
+	int sjökunnighet;
+	int spel;
+	int språkModersmål;
+	int språk;
+	int spåra;
+	int stridAvstånd;
+	int stridNärstrid;
+	int stridObeväpnad;
+	int tjuveri;
+	int underhålla;
+	int vildmarksliv;
+	int värdesätta;
 
 };
 

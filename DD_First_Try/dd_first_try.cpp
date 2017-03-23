@@ -27,6 +27,7 @@ int main() {
 	karaktär.grundegenskaper();
 	karaktär.väljYrke();
 	karaktär.placeraVärdePåEgenskaper();
+	karaktär.färdigheter();
 	karaktär.visaKaraktär();
 
 	return 0;

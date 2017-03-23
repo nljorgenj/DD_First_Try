@@ -37,6 +37,35 @@ Karaktär::Karaktär()
 
 	klass = "";
 
+	besvärjelsekonst = 0;
+	dyrka = 0;
+	finnaDoldaTing = 0;
+	floraOchFauna = 0;
+	förhandla = 0;
+	förstaHjälpen = 0;
+	geografi = 0;
+	hantverk = 0;
+	heraldik = 0;
+	historia = 0;
+	jaktOchFällor = 0;
+	kulturer = 0;
+	läsaOchSkriva = 0;
+	orientera = 0;
+	riddjur = 0;
+	rörlighet = 0;
+	simma = 0;
+	sjökunnighet = 0;
+	spel = 0;
+	språkModersmål = 0;
+	spåra = 0;
+	stridAvstånd = 0;
+	stridNärstrid = 0;
+	stridObeväpnad = 0;
+	tjuveri = 0;
+	underhålla = 0;
+	vildmarksliv = 0;
+	värdesätta = 0;
+
 }
 
 
@@ -455,7 +484,24 @@ void Karaktär::visaKaraktär()
 	cout << "Klass:  " << klass << endl;
 	cout << "Koppar: " << pengar.koppar << endl;
 	cout << "Silver: " << pengar.silver << endl;
-	cout << "Guld:   " << pengar.guld << endl;
+	cout << "Guld:   " << pengar.guld << endl << endl;
+
+
+	cout << "Besvärjelsekonst: " << besvärjelsekonst << "\t\tDyrka:           " << dyrka << endl;
+	cout << "Finna Dolda Ting: " << finnaDoldaTing <<   "\t\tFlora och Fauna: " << floraOchFauna << endl;
+	cout << "Förhandla:        " << förhandla <<        "\t\tFörsta hjälpen:  " << förstaHjälpen << endl;
+	cout << "Geografi:         " << geografi <<         "\t\tHantverk:        " << hantverk << endl;
+	cout << "Heraldik:         " << heraldik <<         "\t\tHistoria:        " << historia << endl;
+	cout << "Jakt och Fällor:  " << jaktOchFällor <<    "\t\tKulturer:        " << kulturer << endl;
+	cout << "Läsa och Skriva:  " << läsaOchSkriva <<    "\t\tOrientera:       " << orientera << endl;
+	cout << "Riddjur:          " << riddjur <<          "\t\tRörlighet:       " << rörlighet << endl;
+	cout << "Simma:            " << simma <<            "\t\tSjökunnighet:    " << sjökunnighet << endl;
+	cout << "Spel:             " << spel <<             "\t\tSpråk modersmål: " << språkModersmål << endl;
+	cout << "Språk:            " << språk <<            "\t\tSpåra:           " << spåra << endl;
+	cout << "Strid Avstånd:    " << stridAvstånd <<     "\t\tStrid Närstrid:  " << stridNärstrid << endl;
+	cout << "Strid Obeväpnad:  " << stridObeväpnad <<   "\t\tTjuveri:         " << tjuveri << endl;
+	cout << "Underhålla:       " << underhålla <<       "\t\tVildmarksliv:    " << vildmarksliv << endl;
+	cout << "Värdesätta:       " << värdesätta << endl;
 
 }
 
@@ -713,6 +759,73 @@ void Karaktär::placeraVärdePåEgenskaper()
 				break;
 			}
 		} while (!valetutfört);
+
+	}
+}
+
+void Karaktär::färdigheter()
+{
+	if (this->yrke == "Hantverkare") {
+		this->besvärjelsekonst = 0;
+		this->dyrka = ((this->intelligens+this->smidighet)/2)*2;
+		this->finnaDoldaTing = this->perception;
+		this->floraOchFauna = this->intelligens*2;
+		this->förhandla = this->karisma*3;
+		this->förstaHjälpen = this->intelligens;
+		this->geografi = this->intelligens;
+		this->hantverk = this->smidighet*4;
+		this->heraldik = this->intelligens;
+		this->historia = this->intelligens;
+		this->jaktOchFällor = ((this->perception + this->smidighet) / 2);
+		this->kulturer = this->intelligens;
+		this->läsaOchSkriva = 0;
+		this->orientera = ((this->intelligens + this->perception) / 2);
+		this->riddjur = this->smidighet;
+		this->rörlighet = this->smidighet;
+		this->simma = 0;
+		this->sjökunnighet = ((this->intelligens + this->perception) / 2);
+		this->spel = this->perception;
+		this->språkModersmål = this->intelligens*3;
+		this->språk = 0;
+		this->spåra = this->perception;
+		this->stridAvstånd = this->smidighet;
+		this->stridNärstrid = ((this->styrka + this->smidighet) / 2);
+		this->stridObeväpnad = this->smidighet;
+		this->tjuveri = this->smidighet;
+		this->underhålla = this->karisma;
+		this->vildmarksliv = 0;
+		this->värdesätta = this->perception*3;
+	}
+	if (this->yrke == "Jägare") {
+		this->besvärjelsekonst = 0;
+		this->dyrka = ((this->intelligens + this->smidighet) / 2);
+		this->finnaDoldaTing = this->perception*2;
+		this->floraOchFauna = this->intelligens * 3;
+		this->förhandla = this->karisma;
+		this->förstaHjälpen = this->intelligens;
+		this->geografi = this->intelligens*3;
+		this->hantverk = this->smidighet * 2;
+		this->heraldik = this->intelligens;
+		this->historia = this->intelligens;
+		this->jaktOchFällor = ((this->perception + this->smidighet) / 2)*4;
+		this->kulturer = this->intelligens;
+		this->läsaOchSkriva = 0;
+		this->orientera = ((this->intelligens + this->perception) / 2)*4;
+		this->riddjur = this->smidighet*2;
+		this->rörlighet = this->smidighet*3;
+		this->simma = ((this->smidighet + this->fysik) / 2)*2;
+		this->sjökunnighet = ((this->intelligens + this->perception) / 2);
+		this->spel = this->perception;
+		this->språkModersmål = this->intelligens * 3;
+		this->språk = 0;
+		this->spåra = this->perception*4;
+		this->stridAvstånd = this->smidighet*4;
+		this->stridNärstrid = ((this->styrka + this->smidighet) / 2)*2;
+		this->stridObeväpnad = this->smidighet*2;
+		this->tjuveri = this->smidighet;
+		this->underhålla = this->karisma;
+		this->vildmarksliv = ((this->fysik + this->psyke) / 2)*4;
+		this->värdesätta = this->perception;
 
 	}
 }
